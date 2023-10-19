@@ -1,0 +1,5 @@
+{
+  "type": "network",
+  "lower_bound": 0,
+  "upper_bound": 1
+}

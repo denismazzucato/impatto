@@ -1,0 +1,11 @@
+
+var a : real, b : real, c : real, d : real, f : real, g : real, h : real, i : real, k : real, l : real, m : real, x : real, y : real, z : real, w : real, result : real;
+begin
+  // INPUTBOUNDS
+  x = (a + b + c) / 2;
+  y = d;
+  z = (f + g + h + i) / 4;
+  w = (k + l + m) / 3;
+  result = (x + y + z + w) / 4;
+  // BUCKET
+end

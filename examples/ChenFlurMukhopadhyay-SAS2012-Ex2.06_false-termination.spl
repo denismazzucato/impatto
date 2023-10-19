@@ -1,0 +1,12 @@
+var x : int, y : int, oldx : int, result : int;
+begin
+  // INPUTBOUNDS
+  oldx = x;
+  while 4 * x + y > 0 do
+    oldx = x;
+    x = -2 * oldx + 4 * y;
+    y = 4 * oldx;
+  done;
+  result = oldx;
+  // BUCKET
+end

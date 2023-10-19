@@ -1,0 +1,15 @@
+{ 
+  "type": "spl",
+  "bounds": [
+    "a > 0 and a <= 100",
+    "b > 0 and b <= 100",
+    "c > 0 and c <= 100",
+    "d > 0 and d <= 100",
+    "x > 0 and x <= 100",
+    "f > 0 and f <= 100",
+    "g > 0 and g <= 100",
+    "h > 0 and h <= 100",
+    "i > 0 and i <= 100",
+    "y > 0 and y <= 100"
+  ]
+}

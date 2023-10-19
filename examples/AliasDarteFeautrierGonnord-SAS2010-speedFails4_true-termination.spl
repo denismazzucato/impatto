@@ -1,0 +1,19 @@
+var i : int, x : int, n : int, b : int, t : int, result : int;
+begin
+  t = 1;
+  // INPUTBOUNDS
+  if b >= 1 then
+    t = 1;
+  else
+    t = -1;
+  endif;
+  while x <= n do
+    if b >= 1 then
+      x = x + t;
+    else
+      x = x - t;
+    endif;
+  done;
+  result = x;
+  // BUCKET
+end

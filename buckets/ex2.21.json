@@ -1,0 +1,7 @@
+{
+  "type": "direct",
+  "buckets": [
+    "result == 0",
+    "result > 0"
+  ]
+}

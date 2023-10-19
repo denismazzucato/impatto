@@ -1,0 +1,16 @@
+
+
+var x : int, y : int;
+begin
+  // INPUTBOUNDS
+  while y >= 1 do
+    if x > 100 then
+      x = x - 10;
+      y = y - 1;
+    else
+      x = x + 11;
+      y = y + 1;
+    endif;
+  done;
+  // BUCKET
+end

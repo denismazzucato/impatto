@@ -1,0 +1,7 @@
+{
+  "type": "direct",
+  "buckets": [
+    "result < 85",
+    "result >= 85"
+  ]
+}

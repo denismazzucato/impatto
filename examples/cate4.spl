@@ -1,0 +1,19 @@
+
+
+var x : int, y : int, i : int, result : int;
+begin
+  // INPUTBOUNDS
+  i = 0;
+  result = 0;
+  i = 0;
+  while i < 2 do
+    result = result + x;
+    i = i + 1;
+  done;
+  i = 0;
+  while i < 1 do
+    result = result + y;
+    i = i + 1;
+  done;
+  // BUCKET
+end

@@ -1,0 +1,8 @@
+{
+  "type": "direct",
+  "buckets": [
+    "0 <= i and i < 20",
+    "20 <= i and i < 40",
+    "40 <= i and i < 60"
+  ]
+}

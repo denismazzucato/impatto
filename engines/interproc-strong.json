@@ -1,0 +1,10 @@
+{
+  "path": "/Users/mazzu/src/interproc/_build/install/default/bin/interproc",
+  "args": [
+    "-analysis", "fbfbfbfb",
+    "-domain", "polkastrict",
+    "-widening", "105", "105",
+    "-display", "text"
+  ],
+  "unroll": "100"
+}

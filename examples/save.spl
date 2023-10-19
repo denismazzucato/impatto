@@ -1,0 +1,100 @@
+/*
+var y : int, step : int, result : int;
+begin
+  // INPUTBOUNDS
+  if y > 0 then
+    if y > 10 then
+      step = -2;
+    else
+      step = -1;
+    endif;
+  else
+    if -y > 10 then
+      step = 2;
+    else
+      step = 1;
+    endif;
+  endif;
+  while y < -2 or y > 2 do
+    y = y + step;
+  done;
+  result = y;
+  // BUCKET
+end
+*/
+
+*/ var l : int, h : int;
+begin
+  // INPUTBOUNDS
+  if l == h then
+    l = 1;
+  else
+    l = 0;
+  // BUCKET
+end */
+
+
+var a : real, b : real, c : real, d : real, f : real, g : real, h : real, i : real, k : real, l : int, m: int, n : int, o: int, p : int, q : int, r : int, s : int, t : int, x : real, y : real, z : real, u : real, result : real;
+begin
+  // INPUTBOUNDS
+  l = 1;
+  m = 1;
+  n = 1;
+
+  o = 1;
+  p = 0;
+  q = 0;
+
+  r = 1;
+  s = 1;
+  t = 1;
+
+  x = 0;
+  y = 0;
+  z = 0;
+
+  u = 0;
+  if l == 1 then
+    x = x + a;
+    u = u + 1;
+  endif;
+  if m == 1 then
+    x = x + b;
+    u = u + 1;
+  endif;
+  if n == 1 then
+    x = x + c;
+    u = u + 1;
+  endif;
+  x = x / u;
+  u = 0;
+  if o == 1 then
+    y = y + d;
+    u = u + 1;
+  endif;
+  if p == 1 then
+    y = y + f;
+    u = u + 1;
+  endif;
+  if q == 1 then
+    y = y + g;
+    u = u + 1;
+  endif;
+  y = y / u;
+  u = 0;
+  if r == 1 then
+    z = z + h;
+    u = u + 1;
+  endif;
+  if s == 1 then
+    z = z + i;
+    u = u + 1;
+  endif;
+  if t == 1 then
+    z = z + k;
+    u = u + 1;
+  endif;
+  z = z / u;
+  result = (y + z) / 2;
+  // BUCKET
+end

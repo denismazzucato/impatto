@@ -1,0 +1,9 @@
+{
+  "path": "/Users/mazzu/src/interproc/_build/install/default/bin/interproc",
+  "args": [
+    "-analysis", "fb",
+    "-domain", "polka",
+    "-display", "text"
+  ],
+  "unroll": "0"
+}

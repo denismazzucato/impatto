@@ -1,0 +1,8 @@
+{
+  "type": "network",
+  "outputs": 2,
+  "labels": [
+    "over 50K",
+    "under 50K"
+  ]
+}

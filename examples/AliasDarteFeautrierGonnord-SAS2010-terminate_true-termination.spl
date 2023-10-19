@@ -1,0 +1,13 @@
+var i : int, j : int, k : int, ell : int, result : int;
+begin
+  ell = 0;
+  // INPUTBOUNDS
+  while i <= 100 and j <= k do
+    ell = i;
+    i = j;
+    j = ell + 1;
+    k = k - 1;
+  done;
+  result = ell;
+  // BUCKET
+end

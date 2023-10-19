@@ -1,0 +1,10 @@
+var x : int, y : int, result : int;
+begin
+  // INPUTBOUNDS
+  while x - y > 0 do
+    x = y - x;
+    y = y + 1;
+  done;
+  result = y;
+  // BUCKET
+end

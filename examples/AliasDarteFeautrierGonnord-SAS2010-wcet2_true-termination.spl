@@ -1,0 +1,14 @@
+var i : int, j : int, result : int;
+begin
+  j = 0;
+  // INPUTBOUNDS
+  while i < 5 do
+    j = 0;
+    while i > 2 and j <= 9 do
+      j = j + 1;
+    done;
+    i = i + 1;
+  done;
+  result = j;
+  // BUCKET
+end

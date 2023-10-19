@@ -1,0 +1,27 @@
+var x : real, t0 : real, t1 : real, t2 : real, t3 : real, t4 : real, t5 : real, exp : real, term : real, count : real, result : real, i : int, temp : array[0..7] of real;
+begin
+  assume x > -1.0 and x < 1.0;
+  exp = 1.0;
+  term = 1.0;
+  count = 1;
+  result = 2 * (1 / (1 - x));
+  i = 0;
+  temp[0] = 1;
+  temp[1] = t0;
+  temp[2] = t1;
+  temp[3] = t2;
+  temp[4] = t3;
+  temp[5] = t4;
+  temp[6] = t5;
+  temp[7] = 0;
+  
+  while temp[i] <> 0 do
+    term = term * (x / count);
+    exp = exp + term;
+    count = count + 1;
+    i = i + 1;
+  done;
+  
+  result = exp;
+  // BUCKET
+end

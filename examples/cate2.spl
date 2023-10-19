@@ -1,0 +1,17 @@
+
+
+var x : int, y : int, i : int;
+begin
+  // INPUTBOUNDS
+  i = 0;
+  while (x >= 0) do
+    if (y <= 50) then
+      x = x + 1;
+    else
+      x = x - 1;
+    endif;
+    y = y + 1;
+    i = i + 1;
+  done;
+  // BUCKET
+end

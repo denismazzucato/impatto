@@ -1,0 +1,17 @@
+
+
+var x : int, y : int, z : int, i : int;
+begin
+  // INPUTBOUNDS
+  z = 100;
+  i = 0;
+  while z >= 2 do
+    if z >= 10 then
+      z = z - y;
+    else
+      z = z - x;
+    endif;
+    i = i+1;
+  done;
+  // BUCKET
+end

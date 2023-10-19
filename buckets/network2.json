@@ -1,0 +1,8 @@
+{
+  "type": "network",
+  "outputs": 2,
+  "labels": [
+    "Quality wine",
+    "Poor wine"
+  ]
+}

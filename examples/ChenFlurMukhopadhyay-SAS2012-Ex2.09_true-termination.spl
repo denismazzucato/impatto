@@ -1,0 +1,10 @@
+var x : int, y : int, n : int, result : int;
+begin
+  // INPUTBOUNDS
+  while x > 0 and x < n do
+    x = -x + y - 5;
+    y = 2 * y;
+  done;
+  result = x;
+  // BUCKET
+end

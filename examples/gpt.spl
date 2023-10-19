@@ -1,0 +1,8 @@
+
+
+var x : real, y : int, w : real, result : real;
+begin
+  // INPUTBOUNDS
+  result = (x / y) + (w * 0.93);
+  // BUCKET
+end

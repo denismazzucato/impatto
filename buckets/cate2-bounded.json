@@ -1,0 +1,7 @@
+{
+  "type": "iterator",
+  "start": 0,
+  "end": 302,
+  "step": 30,
+  "rule": "i >= {} and i < {}"
+}

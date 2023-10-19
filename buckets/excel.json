@@ -1,0 +1,15 @@
+{
+  "type": "direct",
+  "buckets": [
+    "result >= 0 and result < 15",
+    "result >= 15 and result < 25",
+    "result >= 25 and result < 35",
+    "result >= 35 and result < 45",
+    "result >= 45 and result < 55",
+    "result >= 55 and result < 65",
+    "result >= 65 and result < 75",
+    "result >= 75 and result < 85",
+    "result >= 85 and result < 95",
+    "result >= 95 and result <= 100"
+  ]
+}

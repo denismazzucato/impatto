@@ -1,0 +1,7 @@
+{
+  "type": "iterator",
+  "start": -1,
+  "end": 20,
+  "step": 1,
+  "rule": "result == {}"
+}

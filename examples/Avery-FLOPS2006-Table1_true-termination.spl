@@ -1,0 +1,18 @@
+var x : int, y : int, z : int, i : int, result : int;
+begin
+  z = 0;
+  i = x;
+  // INPUTBOUNDS
+  if y > 0 and x > 0 then
+    while i > 0 do
+      i = i - 1;
+      z = z + 1;
+    done;
+    while i < y do
+      i = i + 1;
+      z = z - 1;
+    done;
+  endif;
+  result = z;
+  // BUCKET
+end
