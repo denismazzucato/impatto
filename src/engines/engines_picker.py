@@ -7,7 +7,7 @@ from src.utils.picker import choose, available, to_class_name
 
 # add here all available engines
 from src.engines.interproc import InterprocEngine, InterprocFastEngine, InterprocStrongEngine
-from src.engines.qlibra import LibraEngine, CompleteLibraEngine
+from src.engines.libra import LibraEngine, DisjunctiveCompletionEngine
 
 def choose_engine(engine: str) -> type[Engine]:
   engine_class_name = to_class_name(engine, 'Engine')

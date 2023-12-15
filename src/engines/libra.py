@@ -24,7 +24,7 @@ CONFIGURATION_TEMPLATE = """
 class LibraEngine:
   pass
 
-class CompleteLibraEngine(Engine):
+class DisjunctiveCompletionEngine(Engine):
   def __init__(self, program: Program, input_bounds: InputBounds):
     assert(isinstance(program, NetworkProgram))
     assert(isinstance(input_bounds, NetworkInputBounds))
@@ -43,7 +43,7 @@ class CompleteLibraEngine(Engine):
     configuration_path.write_text(configuration)
     self.configuration_path = configuration_path
 
-    config = Path("./engines/qlibra.json")
+    config = Path("./engines/disjunctive-completion.json")
     conf = read_engine_conf(config)
     self.engine_path = str(Path(conf['path']).absolute())
     self.args = conf["args"]
@@ -51,7 +51,7 @@ class CompleteLibraEngine(Engine):
     self.str_command = ' '.join(self.command)
 
   @staticmethod
-  def parse_qlibra_output(variables: list[str], output: str) -> AbstractDomain:
+  def parse_disjunctive_completion_output(variables: list[str], output: str) -> AbstractDomain:
     """ Example output:
     Output composition (by testing): {0: 55871, 1: 44129} 
 
@@ -331,7 +331,7 @@ End backward analysis for bucket 1 (with 4 polyhedra)
     else:
       debug('Command executed successfully')
     
-    return QlibraEngine.parse_qlibra_output(self.variables,output.decode('utf-8'))
+    return DisjunctiveCompletionEngine.parse_disjunctive_completion_output(self.variables,output.decode('utf-8'))
 
   def get_variables(self) -> list[str]:
     return self.program.get_variables()
