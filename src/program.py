@@ -120,11 +120,11 @@ class NetworkProgram(Program):
     if not silent:
       debug(f'Program "{self.name}"')
       debug(f'Path "{self.path}"')
-      # debug('Content:\n' + add_prefix_each_line(self.content))
-      debug(f'Variables: found {self.nn.ninputs} input features')
+      debug(f'Variables: {", ".join(map(str, self.get_variables()))}')
 
   def get_variables(self) -> list[str]:
-    return list(alphabet_order[:self.nn.ninputs])
+    variable_names = [f"x{i:02}" for i in range(self.nn.ninputs)]
+    return list(variable_names)
 
 def read_program(path: Path) -> Program:
   if path.suffix == '.spl':

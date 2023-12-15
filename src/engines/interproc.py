@@ -95,6 +95,8 @@ class InterprocEngine(Engine):
     output, error = process.communicate()
     if error:
       raise Exception(f'Error running command: {str_command}\n\n{error}')
+    else:
+      debug('Command executed successfully')
     
     self.inv = InterprocEngine.parse_interproc_output(variables, output.decode('utf-8'))
     self.poly = self.inv.poly()
