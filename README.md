@@ -5,7 +5,7 @@ Impatto leverages an underlying backward analyzer to compute the set of input-ou
 This backward analyzer is a parameter of the tool, allowing different kind of analyses such as program or neural network analysis.
 Furthermore, the choice of the impact definition is also a parameter of the tool to better suit several factors, such as the program structure, the environment, and the intuition of the researcher.
 
-> Please refer to the tool-paper describing in detail our tool for more information, link will be available soon.
+> Please refer to the tool-paper describing in detail Impatto for more information, link will be available soon.
 
 ## TL;DR
 
