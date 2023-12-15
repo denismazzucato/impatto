@@ -24,4 +24,4 @@ def available_analyses():
   return available('Analysis', globals())
 
 def default_analysis():
-  return 'range'
+  return 'outcomes'
