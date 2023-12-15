@@ -3,6 +3,22 @@ import re
 
 alphabet_order = "xyzwklmnopqrstuvabcdfgh"
 
+VARIABLE_MAPPING = dict()
+def from_variable_to_harmonic(variable: str) -> str:
+  global VARIABLE_MAPPING
+  if variable not in VARIABLE_MAPPING:
+    if len(VARIABLE_MAPPING) >= len(alphabet_order):
+      raise Exception(f"Too many variables to map: {variable}")
+    VARIABLE_MAPPING[variable] = alphabet_order[len(VARIABLE_MAPPING)]
+  return VARIABLE_MAPPING[variable]
+
+def from_harmonic_to_variable(harmonic: str) -> str:
+  global VARIABLE_MAPPING
+  for variable, harmonic_ in VARIABLE_MAPPING.items():
+    if harmonic == harmonic_:
+      return variable
+  raise Exception(f"Unknown harmonic: {harmonic}")
+
 def from_dash_to_uppercase(name: str) -> str:
   return "".join([word.capitalize() for word in name.split("-")])
 
