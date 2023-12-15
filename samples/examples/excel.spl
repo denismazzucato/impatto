@@ -1,9 +1,7 @@
 
-var a : int, b : int, c : int, d : int, x : int, f : int, g : int, h : int, i : int, y : int, result : int;
+var HW1 : int, HW2 : int, HW3 : int, HW4 : int, QZ1 : int, QZ2 : int, QZ3 : int, QZ4 : int, EX1 : int, EX2 : int, avg : int;
 begin
   // INPUTBOUNDS
-  // result = (0.2 * ((a + b + c + d) / 4) +_f 0.3 *_f ((x +_f f +_f g +_f h) /_f 4) +_f 0.5 *_f ((i +_f y) /_f 2));
-  // result = 0.05 * a + 0.05 * b +_i 0.05 *_i c +_i 0.05 *_i d +_i 0.075 *_i x +_i 0.075 *_i f +_i 0.075 *_i g +_i 0.075 *_i h +_i 0.25 *_i i +_i 0.25 *_i y;
-  result = 0.05 * a + 0.05 * b + 0.05 * c + 0.05 * d + 0.075 * x + 0.075 * f + 0.075 * g + 0.075 * h + 0.25 * i + 0.25 * y;
+  avg = 0.05 * HW1 + 0.05 * HW2 + 0.05 * HW3 + 0.05 * HW4 + 0.075 * QZ1 + 0.075 * QZ2 + 0.075 * QZ3 + 0.075 * QZ4 + 0.25 * EX1 + 0.25 * EX2;
   // BUCKET
 end
