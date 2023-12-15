@@ -1,15 +1,15 @@
 {
   "type": "direct",
   "buckets": [
-    "result >= 0 and result < 15",
-    "result >= 15 and result < 25",
-    "result >= 25 and result < 35",
-    "result >= 35 and result < 45",
-    "result >= 45 and result < 55",
-    "result >= 55 and result < 65",
-    "result >= 65 and result < 75",
-    "result >= 75 and result < 85",
-    "result >= 85 and result < 95",
-    "result >= 95 and result <= 100"
+    "avg >= 0 and avg < 15",
+    "avg >= 15 and avg < 25",
+    "avg >= 25 and avg < 35",
+    "avg >= 35 and avg < 45",
+    "avg >= 45 and avg < 55",
+    "avg >= 55 and avg < 65",
+    "avg >= 65 and avg < 75",
+    "avg >= 75 and avg < 85",
+    "avg >= 85 and avg < 95",
+    "avg >= 95 and avg <= 100"
   ]
 }
