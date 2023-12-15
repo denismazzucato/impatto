@@ -1,4 +1,4 @@
-from argparse import ArgumentParser, Namespace
+from argparse import ArgumentParser, Namespace, RawTextHelpFormatter
 from logging import debug, error, info
 from pathlib import Path
 
@@ -13,7 +13,9 @@ TIMEOUT_SECONDS = 60
 
 def cli_helper(raw_args_without_program: list[str] | None) -> Namespace:
   setup_logs()
-  parser = ArgumentParser(description='Impatto, A Static Analyzer for Quantitative Input Data Usage')
+  parser = ArgumentParser(
+    description='Impatto, A Static Analyzer for Quantitative Input Data Usage',
+    formatter_class=RawTextHelpFormatter)
   parser.add_argument('program', metavar='PROGRAM', type=Path,
                       help='path to the input program PROGRAM')
   parser.add_argument('inputs', metavar='INPUTS.json', type=Path,
@@ -21,12 +23,12 @@ def cli_helper(raw_args_without_program: list[str] | None) -> Namespace:
   parser.add_argument('buckets', metavar='BUCKETS.json', type=Path,
                       help='path to the BUCKETS.json file for output buckets')
   parser.add_argument('-d', '--debug', action='store_true',
-                      help='set log level to DEBUG')
+                      help='activate debug mode')
   parser.add_argument('-a', '--analysis', metavar='IMPACT', type=str, default=default_analysis(),
-                      help='impact analysis: ' + ', '.join(available_analyses()))
+                      help='impact analysis: ' + ', '.join(available_analyses()) + '\ndefault: ' + default_analysis())
   parser.add_argument('-e', '--engine', metavar='ENGINE', type=str, default=default_engine(),
-                      help='backward engines: ' + ', '.join(available_engines()))
-  parser.add_argument('-i', '--interest', metavar='VARIABLE', type=str, help='variable of interest')
+                      help='backward engines: ' + ', '.join(available_engines()) + '\ndefault: ' + default_engine())
+  parser.add_argument('-i', '--interest', metavar='VARIABLE', type=str, help='variable of interest, default: all')
   add_additional_flags(parser)
 
   args = parser.parse_args(raw_args_without_program)
