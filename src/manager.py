@@ -12,7 +12,7 @@ def run_engine_each_bucket(
     engine: Engine,
     buckets: Buckets) -> list[AbstractDomain]:
   acc = []
-  info("Computing backward analsysis...")
+  info("Computing backward analysis...")
   for bucket in buckets:
     debug(f'Running engine for bucket ({bucket})')
     observations = engine.run(bucket)
