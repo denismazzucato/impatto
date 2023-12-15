@@ -60,10 +60,10 @@ Here, it follows the screenshots of the demo. First, we show the helper menu in 
 
 The demo runs the *outcomes* analysis using the *interproc* engine on a program extracted from the [CheckCell](https://doi.org/10.1145/2660193.2660207) benchmark suite:
 ```python
-def final_grade (
+def final_grade(
     HW1, HW2, HW3, HW4 ,
     QZ1, QZ2, QZ3, QZ4 ,
-    EX1, EX2 ) :
+    EX1, EX2):
   HW_coeff = 0.2
   QZ_coeff = 0.3
   EX_coeff = 0.5
@@ -74,12 +74,12 @@ def final_grade (
   return avg
 ```
 
-As `interproc` supports the `spl` language, we need to convert the program to `spl` first (program `examples/excel.spl`):
+As `interproc` supports the `spl` language, we need to convert the program to `spl` first (program `samples/examples/excel.spl`):
 ```spl
-var HW1 : int, HW2 : int, HW3 : int, HW4 : int, QZ1 : int, QZ2 : int, QZ3 : int, QZ4 : int, EX1 : int, EX2 : int, result : int;
+var HW1 : int, HW2 : int, HW3 : int, HW4 : int, QZ1 : int, QZ2 : int, QZ3 : int, QZ4 : int, EX1 : int, EX2 : int, avg : int;
 begin
   // INPUTBOUNDS
-  result = 0.05 * HW1 + 0.05 * HW2 + 0.05 * HW3 + 0.05 * HW4 + 0.075 * QZ1 + 0.075 * QZ2 + 0.075 * QZ3 + 0.075 * QZ4 + 0.25 * EX1 + 0.25 * EX2;
+  avg = 0.05 * HW1 + 0.05 * HW2 + 0.05 * HW3 + 0.05 * HW4 + 0.075 * QZ1 + 0.075 * QZ2 + 0.075 * QZ3 + 0.075 * QZ4 + 0.25 * EX1 + 0.25 * EX2;
   // BUCKET
 end
 ```
@@ -88,7 +88,7 @@ As you can note, we also squashed the computations together to not deal with mul
 
 Then, we run the analysis specifying that the variable of interest is `EX1`:
 ```bash
-> python impatto.py examples/excel.spl inputs/excel-transposition.json buckets/excel-boolean.json \
+> python impatto.py samples/examples/excel.spl samples/inputs/excel-transposition.json samples/buckets/excel-boolean.json \
     --analysis outcomes --engine interproc --interest EX1
 ```
 
@@ -96,7 +96,7 @@ Then, we run the analysis specifying that the variable of interest is `EX1`:
 
 Then, we run the same analysis over all the input variables:
 ```bash
-> python impatto.py examples/excel.spl inputs/excel-transposition.json buckets/excel-boolean.json \
+> python impatto.py samples/examples/excel.spl samples/inputs/excel-transposition.json samples/buckets/excel-boolean.json \
     --analysis outcomes --engine interproc
 ```
 
@@ -104,16 +104,16 @@ Then, we run the same analysis over all the input variables:
 
 Additionally, let us turn on the debugging mode to see the analysis details:
 ```bash
-> python impatto.py examples/excel.spl inputs/excel-transposition.json buckets/excel-boolean.json \
+> python impatto.py samples/examples/excel.spl samples/inputs/excel-transposition.json samples/buckets/excel-boolean.json \
     --analysis outcomes --engine interproc --debug
 ```
 
 ![Debug mode](screenshots/excel-debug-1.png)
 
-Moreover, we can run neural network analyses. For example, let us consider the neural network `networks/python/diabetes__0_1_2_3_4__4_4.py`. The chosen backward engine is `complete-libra`, a custom version of [libra](https://github.com/caterinaurban/libra); and the *changes* analysis:
+Moreover, we can run neural network analyses. For example, let us consider the neural network `samples/networks/python/diabetes__0_1_2_3_4__4_4.py`. The chosen backward engine is `disjunctive-completion`, a custom version of [libra](https://github.com/caterinaurban/libra); and the *changes* analysis:
 ```bash
-> python impatto.py networks/python/diabetes__0_1_2_3_4__4_4.py inputs/networks.json buckets/network2.json \
-    --engine complete-libra --analysis changes --debug
+> python impatto.py samples/networks/python/diabetes__0_1_2_3_4__4_4.py samples/inputs/networks.json samples/buckets/network2.json \
+    --engine disjunctive-completion --analysis changes --debug
 ```
 
 ![Neural network analysis](screenshots/neural-network-1.png)
