@@ -7,7 +7,7 @@ from src.buckets import Bucket
 from src.engines.base import TMP_DIR, read_engine_conf, Engine
 from src.program import Program, SPLProgram
 from src.input_bounds import InputBounds, SPLInputBounds
-from src.utils.string import clean
+from src.utils.string import clean, from_variable_to_harmonic
 from src.abstract_domains.poly import Poly
 
 
@@ -38,7 +38,7 @@ class InterprocInv:
       raw_poly = []
     self.raw_poly = raw_poly
 
-  def poly(self, variable_mapping=lambda x: x):
+  def poly(self, variable_mapping=from_variable_to_harmonic):
     if self.is_bottom:
       return Poly.bottom()
     if self.is_top:

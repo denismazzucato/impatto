@@ -11,6 +11,7 @@ from src.engines.base import TMP_DIR, Engine, read_engine_conf
 from src.input_bounds import InputBounds, NetworkInputBounds
 from src.program import NetworkProgram, Program
 from src.utils.progress_bar import subprogress_bar
+from src.utils.string import from_variable_to_harmonic
 
 
 CONFIGURATION_TEMPLATE = """
@@ -313,7 +314,7 @@ End backward analysis for bucket 1 (with 4 polyhedra)
       for ctx in matched_disjunction
     ]
     disjunction = [
-      Poly.from_string_constraints(variables, lambda x: x, constraints)
+      Poly.from_string_constraints(variables, from_variable_to_harmonic, constraints)
       for constraints in subprogress_bar(str_disjunction, desc='Parsing disjunctive polyhedra')
     ]
     return DisjunctivePoly(disjunction).remove_bottoms()

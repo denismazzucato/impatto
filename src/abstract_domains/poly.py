@@ -9,6 +9,7 @@ import networkx as nx
 from src.utils.lp import SolverError, solve
 from src.utils.progress_bar import subprogress_bar
 from src.abstract_domains.abstract_domain import AbstractDomain
+from src.utils.string import from_harmonic_to_variable
 
 eps = 1e-5
 
@@ -104,16 +105,18 @@ class Poly(AbstractDomain):
     self.status = Status.UNKNOWN
 
   @staticmethod
-  def from_string_constraints(variables: list[str], variable_mapping,string_constraints: list[str]) -> 'Poly':
+  def from_string_constraints(variables: list[str], variable_mapping, string_constraints: list[str]) -> 'Poly':
     if string_constraints == []:
       warning("Empty list of constraints, returning bottom")
       return Poly.bottom()
-    replaced_string_constriaints = []
+    replaced_string_constriaints, replaced_variables = [], set()
     for constraint in string_constraints:
       for variable in variables:
-        constraint = constraint.replace(variable, variable_mapping(variable))
+        replaced_variable = variable_mapping(variable)
+        constraint = constraint.replace(variable, replaced_variable)
+        replaced_variables.add(replaced_variable)
       replaced_string_constriaints.append(constraint)
-    return Poly(*parse_polyhedra_constraints(variables, replaced_string_constriaints))
+    return Poly(*parse_polyhedra_constraints(list(replaced_variables), replaced_string_constriaints))
 
   @staticmethod
   def top() -> 'Poly':
@@ -180,7 +183,10 @@ class Poly(AbstractDomain):
 
   def _str(self):
     inequalities = [str(x) for x in self.to_inequalities()]
-    return " && \n".join(inequalities)
+    str_inequalities = " && \n".join(inequalities)
+    for variable in self.variables:
+      str_inequalities = str_inequalities.replace(variable, from_harmonic_to_variable(variable))
+    return str_inequalities
 
   def __str__(self):
     if self.is_bottom():
@@ -188,7 +194,10 @@ class Poly(AbstractDomain):
     if self.is_top():
       return "top"
     inequalities = [str(x) for x in self.to_inequalities()]
-    return " && \n".join(inequalities)
+    str_inequalities = " && \n".join(inequalities)
+    for variable in self.variables:
+      str_inequalities = str_inequalities.replace(variable, from_harmonic_to_variable(variable))
+    return str_inequalities
   
   def count_integers_between(self, lowerbound:int=0, upperbound:int=20) -> int:
     if self.is_bottom():

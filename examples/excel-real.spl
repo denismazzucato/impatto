@@ -1,0 +1,7 @@
+
+var HW1 : int, HW2 : int, HW3 : int, HW4 : int, QZ1 : int, QZ2 : int, QZ3 : int, QZ4 : int, EX1 : int, EX2 : int, avg : int;
+begin
+  // INPUTBOUNDS
+  avg = 0.05 * HW1 + 0.05 * HW2 + 0.05 * HW3 + 0.05 * HW4 + 0.075 * QZ1 + 0.075 * QZ2 + 0.075 * QZ3 + 0.075 * QZ4 + 0.25 * EX1 + 0.25 * EX2;
+  // BUCKET
+end

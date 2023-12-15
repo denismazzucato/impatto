@@ -5,7 +5,7 @@ from src.buckets import Buckets
 from src.engines.base import Engine
 from src.impacts.base import Analysis
 from src.input_bounds import InputBounds
-from src.utils.string import add_prefix_each_line
+from src.utils.string import add_prefix_each_line, from_variable_to_harmonic
 
 
 def run_engine_each_bucket(
@@ -25,10 +25,9 @@ def run_analysis_each_variable(
     variables: list[str]) -> list[AbstractDomain]:
   acc = []
   info("Analysis results:")
-  for variable in variables: # TODO: understand how to retrieve variables
-    analysis_name = analysis.__class__.__name__
-    print(f'Running "{analysis_name}" for variable "{variable}":')
-    result = analysis.run(variable)
+  for variable in variables:
+    print(f'Running "{analysis.__class__.__name__}" for variable "{variable}":')
+    result = analysis.run(from_variable_to_harmonic(variable))
     print(add_prefix_each_line(str(result).replace("frozenset", "")))
     acc.append(analysis)
   return acc
