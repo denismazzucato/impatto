@@ -28,7 +28,7 @@ def cli_helper(raw_args_without_program: list[str] | None) -> Namespace:
                       help='impact analysis: ' + ', '.join(available_analyses()) + '\ndefault: ' + default_analysis())
   parser.add_argument('-e', '--engine', metavar='ENGINE', type=str, default=default_engine(),
                       help='backward engines: ' + ', '.join(available_engines()) + '\ndefault: ' + default_engine())
-  parser.add_argument('-i', '--interest', metavar='VARIABLE', type=str, help='variable of interest, default: all')
+  parser.add_argument('-i', '--interest', metavar='VARIABLE', type=str, help='variable of interest\ndefault: all')
   add_additional_flags(parser)
 
   args = parser.parse_args(raw_args_without_program)
@@ -51,5 +51,5 @@ def cli_helper(raw_args_without_program: list[str] | None) -> Namespace:
   if args.engine not in available_engines():
     raise Exception(f'Engine {RED}{args.engine}{ENDC} not supported, please choose one of: {", ".join(available_engines())}')
 
-  # debug("Debugging mode on")
+  debug("Debugging mode on")
   return args

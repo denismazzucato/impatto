@@ -14,15 +14,18 @@ def main(raw_args: list[str] | None = None):
   program = read_program(args.program)
   Engine = choose_engine(args.engine)
   Analysis = choose_analysis(args.analysis)
+  if args.interest:
+    variables_of_interest = [args.interest]
+  else:
+    variables_of_interest = program.get_variables()
 
   # retrieve the input-output observations from the engine
   loaded_engine = Engine(program, inputs)
   preconditions = run_engine_each_bucket(loaded_engine, buckets)
 
   # run the analysis
-  variables = program.get_variables()
   loaded_analysis = Analysis(preconditions, buckets)
-  results = run_analysis_each_variable(loaded_analysis, variables)
+  results = run_analysis_each_variable(loaded_analysis, variables_of_interest)
 
 if __name__ == '__main__':
   main()
